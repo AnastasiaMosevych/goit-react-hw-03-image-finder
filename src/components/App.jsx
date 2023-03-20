@@ -22,30 +22,15 @@ export class App extends Component {
     error: null,
   }
 
-  // componentDidMount() {
-  //       this.setState({ isLoading: true });
-    
-  //       try {
-  //           const images = ImagesApi.getImages(this.props.searchText);
-  //           this.setState({images});
-  //       } catch (error) {
-  //           this.setState({ error });
-  //           } finally {
-  //               this.setState({ isLoading: false });
-  //           }
-  //   }
-
   componentDidUpdate(prevProps, prevState) {
 		if (prevState.page !== this.state.page || prevState.searchText !== this.state.searchText) {
 			getImagesApi(this.state.searchText, this.state.page)
       .then((response) => response.json())
         .then((data) => {
           const newImages = data.hits.map(image => ({ id: image.id, smallImageUrl: image.webformatURL, largeImageUrl: image.largeImageURL }));
-					// if (data.status === 'ok')
 						this.setState({
 							images: this.state.images.concat(newImages),
 						})
-					// else return Promise.reject(data.message)
 				})
 				.catch((error) => {
 					this.setState({ error })

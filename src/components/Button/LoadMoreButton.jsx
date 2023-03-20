@@ -1,6 +1,7 @@
 import { StyledButton } from "./LoadMoreButton.styled";
 import { Component } from "react";
-import {ButtonContainer} from "./LoadMoreButton.styled"
+import { ButtonContainer } from "./LoadMoreButton.styled";
+import PropTypes from 'prop-types';
 
 export class LoadMoreButton extends Component {
     render() {
@@ -8,4 +9,8 @@ export class LoadMoreButton extends Component {
             <StyledButton onClick={this.props.handleLoadMore}>Load more</StyledButton>
         </ButtonContainer>
     }
+}
+
+LoadMoreButton.propTypes = {
+    handleLoadMore: PropTypes.func.isRequired,
 }

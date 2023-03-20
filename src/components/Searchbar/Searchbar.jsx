@@ -20,7 +20,6 @@ export class Searchbar extends Component {
         }
         this.props.handleSearchbarSubmit(this.state.searchText);
         this.setState({searchText: ''})
-        
     }
         
     render() {
@@ -43,8 +42,7 @@ export class Searchbar extends Component {
                         placeholder="Search images and photos"
                     />
                 </SearchForm>
-            </SearchbarStyled>
-            
+            </SearchbarStyled>  
         )
     }
 }

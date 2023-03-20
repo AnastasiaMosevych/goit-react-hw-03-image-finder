@@ -1,22 +1,21 @@
 import { Component } from "react";
 import { StyledImageGalleryItem, GalleryItemImage } from './ImageGalleryItem.styled';
+import PropTypes from 'prop-types';
 
 export class ImageGalleryItem extends Component {
     render() {
-        const { toggleModal, smallImageUrl, bigImageUrl } = this.props;
+        const { toggleModal, smallImageUrl, largeImageUrl } = this.props;
         return <>
             <StyledImageGalleryItem>
-                <ImageComponent smallImageUrl={smallImageUrl} bigImageUrl={bigImageUrl} toggleModal={toggleModal} />
+                <GalleryItemImage src={smallImageUrl} alt="" data-url={largeImageUrl} onClick={toggleModal} />
             </StyledImageGalleryItem>
         </>
     }
 }
 
-export class ImageComponent extends Component {
-    render() {
-        const { toggleModal, smallImageUrl, bigImageUrl } = this.props;
-        return <>
-            <GalleryItemImage src={smallImageUrl} alt="" data-url={bigImageUrl} onClick={toggleModal} />
-        </>
-    }  
+ImageGalleryItem.propTypes = {
+    toggleModal: PropTypes.func.isRequired,
+    smallImageUrl: PropTypes.shape({ smallImageUrl: PropTypes.string.isRequired }),
+    largeImageUrl: PropTypes.shape({ largeImageUrl: PropTypes.string.isRequired }),
+    
 }
