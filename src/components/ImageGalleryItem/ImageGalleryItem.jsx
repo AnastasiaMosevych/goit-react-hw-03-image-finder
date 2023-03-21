@@ -15,7 +15,6 @@ export class ImageGalleryItem extends Component {
 
 ImageGalleryItem.propTypes = {
     toggleModal: PropTypes.func.isRequired,
-    smallImageUrl: PropTypes.shape({ smallImageUrl: PropTypes.string.isRequired }),
-    largeImageUrl: PropTypes.shape({ largeImageUrl: PropTypes.string.isRequired }),
-    
+    smallImageUrl: PropTypes.PropTypes.string.isRequired,
+    largeImageUrl: PropTypes.PropTypes.string.isRequired,
 }

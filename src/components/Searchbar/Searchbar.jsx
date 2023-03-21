@@ -2,6 +2,7 @@ import { Component } from "react";
 import { SearchbarStyled, SearchForm, SubmitButton, SubmitButtonLabel, SearchFormInput } from './Searchbar.styled';
 import { BsSearch } from "react-icons/bs";
 import { toast } from "react-toastify";
+import PropTypes from 'prop-types';
     
 export class Searchbar extends Component {
     state = {
@@ -19,7 +20,6 @@ export class Searchbar extends Component {
             return;
         }
         this.props.handleSearchbarSubmit(this.state.searchText);
-        this.setState({searchText: ''})
     }
         
     render() {
@@ -45,4 +45,8 @@ export class Searchbar extends Component {
             </SearchbarStyled>  
         )
     }
+}
+
+Searchbar.propTypes = {
+    handleSearchbarSubmit: PropTypes.func.isRequired,
 }

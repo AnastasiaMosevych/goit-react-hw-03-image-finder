@@ -40,7 +40,6 @@ export class Modal extends Component {
 
 Modal.propTypes = {
     imageToShow: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
 }
 
 

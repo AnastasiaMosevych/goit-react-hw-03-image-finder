@@ -9,8 +9,6 @@ import { ToastContainer } from 'react-toastify';
 import { getImagesApi }  from '../api/api';
 import "react-toastify/dist/ReactToastify.css";
 
-
-
 export class App extends Component {
   state = {
     searchText: '',
@@ -27,10 +25,10 @@ export class App extends Component {
 			getImagesApi(this.state.searchText, this.state.page)
       .then((response) => response.json())
         .then((data) => {
-          const newImages = data.hits.map(image => ({ id: image.id, smallImageUrl: image.webformatURL, largeImageUrl: image.largeImageURL }));
-						this.setState({
-							images: this.state.images.concat(newImages),
-						})
+            const newImages = data.hits.map((image) => ({ id: image.id, smallImageUrl: image.webformatURL, largeImageUrl: image.largeImageURL }));
+            this.setState({
+              images: this.state.images.concat(newImages),
+            })
 				})
 				.catch((error) => {
 					this.setState({ error })
@@ -52,16 +50,17 @@ export class App extends Component {
   }
 
   handleSearchbarSubmit = searchText => {
-    this.setState({
-      searchText: searchText,
-      isLoading: true,
-      images: [],
-      page: 1,
-    });
+    if (this.state.searchText !== searchText) {
+      this.setState({
+        searchText: searchText,
+        isLoading: true,
+        images: [],
+        page: 1,
+      });
+    }
   }
 
   handleLoadMore = e => {
-    e.preventDefault();
     this.setState({
       page: this.state.page + 1,
     })

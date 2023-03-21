@@ -23,7 +23,7 @@ ImageGallery.propTypes = {
         PropTypes.shape({
             id: PropTypes.number.isRequired,
             smallImageUrl: PropTypes.string.isRequired,
-            largeImageURL: PropTypes.string.isRequired,
+            largeImageUrl: PropTypes.string.isRequired,
     })
   ),
 
